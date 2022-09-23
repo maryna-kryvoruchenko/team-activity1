@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //Problem 1
+
+      function scheduleMeeting(startTime, durationMinutes) {
+        let dayStart = "07:30";
+        let dayEnd = "17:45";
+
+        dayStart = parseInt(dayStart.replace(":", ""));
+        dayEnd = parseInt(dayEnd.replace(":", ""));
+
+        meetingStart = parseInt(startTime.replace(":", ""));
+        meetingEnd = meetingStart + durationMinutes;
+
+        if (dayStart <= meetingStart && dayEnd >= meetingEnd) {
+          return true;
+        }
+        return false;
+      }
+
+      console.log(scheduleMeeting("07:15", 30)); // false
+      console.log(scheduleMeeting("7:00", 15)); // false
+      console.log(scheduleMeeting("7:30", 30)); // true
+      console.log(scheduleMeeting("11:30", 60)); // true
+      console.log(scheduleMeeting("17:00", 45)); // true
+      console.log(scheduleMeeting("17:30", 30)); // false
+      console.log(scheduleMeeting("18:00", 15)); // false
+
+      //Problem 2
+
+      function filterStopWords(arrayToFilter) {
+        const stopWords = [
+          "a",
+          "about",
+          "actually",
+          "almost",
+          "also",
+          "although",
+          "always",
+          "am",
+          "an",
+          "and",
+          "any",
+          "are",
+          "as",
+          "at",
+          "be",
+          "became",
+          "become",
+          "but",
+          "by",
+          "can",
+          "could",
+          "did",
+          "do",
+          "does",
+          "each",
+          "either",
+          "else",
+          "for",
+          "from",
+          "had",
+          "has",
+          "had",
+          "hence",
+          "how",
+          "i",
+          "if",
+          "in",
+          "is",
+          "it",
+          "its",
+          "just",
+          "may",
+          "maybe",
+          "me",
+          "might",
+          "mine",
+          "must",
+          "my",
+          "neither",
+          "nor",
+          "not",
+          "of",
+          "oh",
+          "ok",
+          "the",
+          "when",
+          "where",
+          "whereas",
+          "wherever",
+          "whenever",
+          "whether",
+          "which",
+          "while",
+          "who",
+          "whom",
+          "whoever",
+          "whose",
+          "why",
+          "will",
+          "with",
+          "within",
+          "without",
+          "would",
+          "yes",
+          "yet",
+          "you",
+          "your",
+        ];
+
+        //var bedrooms = myArray.filter(name => name.includes('bedroom'))
+
+        noWords = arrayToFilter.filter((words) => !stopWords.includes(words));
+        return noWords;
+      }
+
+      console.log(filterStopWords(["and", "the", "of", "best"])); // ['best']
+      console.log(
+        filterStopWords(["brother", "hayes", "class", "is", "the", "best"])
+      ); // ['brother','hayes','class','best']
+      console.log(filterStopWords(["and"])); // []
+
+      //Problem 3
+      const arr = [1, 2, 3];
+      let squares = arr.map((x) => x * x);
+      // Traditional function expression:
+      squares = arr.map(function (x) {
+        return x * x;
+      });
+
+      const discountedItems = arr.map((x) => x * 0.6);
+
+      console.log(discountedItems);
+    </script>
+  </body>
+</html>
