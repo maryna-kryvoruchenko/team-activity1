@@ -12,13 +12,13 @@ function setLocalStorage(key, data) {
 }
 
 // get tents data
-function getProductsData() {
-  fetch("../json/tents.json")
-    .then(convertToJson)
-    .then((data) => {
-      products = data;
-    });
-}
+// function getProductsData() {
+//   fetch("../json/tents.json")
+//     .then(convertToJson)
+//     .then((data) => {
+//       products = data;
+//     });
+// }
 // or should we do it this way?
 // async function getProductsDataAwait() {
 //   products = await fetch("../json/tents.json").then(convertToJson);
@@ -26,7 +26,7 @@ function getProductsData() {
 
 // add to cart button event handler
 function addToCart(e) {
-  const product = products.find((item) => item.Id === e.target.dataset.id);
+  const product = products.find((item) => item.Id === e.target.dataset.id); ///(item) shouldn't have parentheses
   setLocalStorage("so-cart", product);
 }
 
