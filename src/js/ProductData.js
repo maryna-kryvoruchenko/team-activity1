@@ -13,8 +13,7 @@ export default class ProductData {
     }
     getData() {
         return fetch(this.path)
-        .then(convertToJson)
-        .then((data) => data);
+          .then(convertToJson).then((data) => data);
     }
     async findProductById(id) {
         const products = await this.getData();
