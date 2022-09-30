@@ -1,3 +1,15 @@
+import ProductData from './ProductData.js';
+import ProductDetails from './productDetails.js';
+import {getParam} from './utils.js';
+
+const productId = getParam('product');
+const dataSource = new ProductData('tents');
+
+const product = new ProductDetails(productId, dataSource);
+product.init();
+
+//console.log(dataSource.findProductById(productId));
+
 let products = [];
 function convertToJson(res) {
   if (res.ok) {
@@ -25,10 +37,10 @@ function setLocalStorage(key, data) {
 // }
 
 // add to cart button event handler
-function addToCart(e) {
-  const product = products.find((item) => item.Id === e.target.dataset.id); ///(item) shouldn't have parentheses
-  setLocalStorage("so-cart", product);
-}
+// function addToCart(e) {
+//   const product = products.find((item) => item.Id === e.target.dataset.id); ///(item) shouldn't have parentheses
+//   setLocalStorage("so-cart", product);
+// }
 
 getProductsData();
 // add listener to Add to Cart button
