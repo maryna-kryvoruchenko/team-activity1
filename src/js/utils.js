@@ -1,5 +1,5 @@
 // wrapper for querySelector...returns matching element
-export function qs(selector, parent = document) {
+export function qs(selector) {
   return parent.querySelector(selector);
 }
 // or a more concise version if you are into that sort of thing:
@@ -20,4 +20,12 @@ export function setClick(selector, callback) {
     callback();
   });
   qs(selector).addEventListener("click", callback);
+}
+
+export function getParam(param) {
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  const product = urlParams.get('product'); 
+
+  return urlParams.get(param);
 }
