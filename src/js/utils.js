@@ -21,10 +21,8 @@ export function setLocalStorage(key, data) {
   localStorage.setItem(key, JSON.stringify(currentCart));
 
   var x = currentCart.length;
-  //document.getElementById("demo").innerHTML = x;
-  //document.getElementById("counter").innerHTML = x;
-  //document.getElementById("counter1").innerHTML = x;
   document.querySelector(".counter").innerHTML = x;
+  
 }
 
 
