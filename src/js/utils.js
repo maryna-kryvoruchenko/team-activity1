@@ -24,6 +24,10 @@ export function setLocalStorage(key, data) {
   //document.getElementById("demo").innerHTML = x;
   //document.getElementById("counter").innerHTML = x;
   //document.getElementById("counter1").innerHTML = x;
+  totalCart(x);
+}
+
+export function totalCart(x){
   document.querySelector(".counter").innerHTML = x;
 }
 
