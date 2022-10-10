@@ -1,3 +1,5 @@
+//import {showTotalCartItems} from './utils.js'; 
+
 function getLocalStorage(key) {
   return JSON.parse(localStorage.getItem(key));
 }
@@ -8,6 +10,7 @@ function getCartContents() {
   const htmlItems = cartItems.map((item) => renderCartItem(item));
   document.querySelector(".product-list").innerHTML = htmlItems.join("");
   // document.querySelector(".product-list").innerHTML = renderCartItem(cartItems);
+  document.querySelector(".counter").innerHTML = cartItems.length;
 }
 
 function renderCartItem(item) {
@@ -30,3 +33,4 @@ function renderCartItem(item) {
 }
 
 getCartContents();
+//showTotalCartItems(TotalProduct);

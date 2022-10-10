@@ -19,18 +19,21 @@ export function setLocalStorage(key, data) {
   console.log(currentCart);
   currentCart.push(data);
   localStorage.setItem(key, JSON.stringify(currentCart));
-
-  var x = currentCart.length;
-  //document.getElementById("demo").innerHTML = x;
-  //document.getElementById("counter").innerHTML = x;
-  //document.getElementById("counter1").innerHTML = x;
-  totalCart(x);
+  
+  showTotalCartItems(currentCart.length);
 }
 
-export function totalCart(x){
-  document.querySelector(".counter").innerHTML = x;
+export function getAddedItemsNumber(){
+  let localStorage = getLocalStorage("so-cart");
+  let addedItemsNumber = localStorage.length;
+
+  return addedItemsNumber;
 }
 
+// find total items in cart 
+export function showTotalCartItems(items){
+  document.querySelector(".counter").innerHTML = items;
+ }
 
 // set a listener for both touchend and click
 export function setClick(selector, callback) {
