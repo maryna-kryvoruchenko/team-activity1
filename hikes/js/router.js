@@ -1,7 +1,7 @@
 import ListMaker from './ListMaker.js';
 const routes = [
   { controller: new ListMaker('hikes'), file: 'partials/hikes.html', label: 'Hiking' },
-  { controller: new ListMaker(), file: 'partials/park.html', label: 'Parks' }
+  { controller: new ListMaker('parks'), file: 'partials/parks.html', label: 'Parks' }
 ];
 
 // function to create a navigation for the items found in routes.
@@ -40,7 +40,7 @@ function addNavEvent(element, path, controller) {
 async function insertView(viewPromise, controller) {
   const contentElement = document.getElementById('content');
   //debugger;
-  contentElement.innerHTML = viewPromise;
+  contentElement.innerHTML = await viewPromise;
   const itemTemplate = document.getElementById('itemTemplate');
   controller.init(itemTemplate);
 }

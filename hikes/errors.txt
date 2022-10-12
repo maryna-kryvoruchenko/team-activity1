@@ -1,16 +1,16 @@
 ListMaker.js
-ln 4
+ln 4 - DONE
 ln33
 ln 38
 ln40
 
 hikes.html
-ln9
-ln13
+ln9 - DONE
+ln13 - DONE
 
 index.html
-ln8
+ln8 - DONE
 
 router.js
-ln 4
-ln 43
+ln 4 - DONE
+ln 43 - DONE

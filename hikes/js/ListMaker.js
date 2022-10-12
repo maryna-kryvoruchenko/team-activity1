@@ -1,9 +1,18 @@
 import Comment from './Comments.js';
-async function makeRequest(url) {
-    // this works...until there is a problem, we should harden this up to catch errors if they occur
-    const response = await fetch(url);
-    return await response.json();
-      
+async function makeRequest(url){
+  try {
+      const response = await fetch(url);
+      if(response.ok){
+          return await response.json();
+      }
+      else {
+          const error = await response.text();
+          throw new Error(error);
+      }
+    }
+      catch (err) {
+          console.log(err);
+      }
 }
 
 function renderListWithTemplate(template, parent, list, prepareCallback) {
@@ -28,9 +37,9 @@ export default class ListMaker {
     async init(template){
         this.template = template;
         
-        this.parent = document.querySelector(`${this.type} > ul`);
+        this.parent = document.querySelector(`#${this.type} > ul`);
         this.list = await makeRequest(`js/${this.type}.json`);
-        renderListWithTemplate(this.template, this.parent, this.list, this.prepareTemplate());
+        renderListWithTemplate(this.template, this.parent, this.list, this.prepareTemplate);
         this.comments.showCommentList();
     }
     
@@ -44,6 +53,6 @@ export default class ListMaker {
               }) 
             }
           }) 
-        
+        return template;
       }
 }
