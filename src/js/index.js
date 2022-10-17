@@ -5,5 +5,6 @@ window.addEventListener("load", event => {
 });
 
 function displayAddedItemsNumber() {
+    console.log(document.querySelector(".counter"));
     document.querySelector(".counter").innerHTML = getAddedItemsNumber();
 }
