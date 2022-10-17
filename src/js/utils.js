@@ -25,7 +25,11 @@ export function setLocalStorage(key, data) {
 
 export function getAddedItemsNumber(){
   let localStorage = getLocalStorage("so-cart");
-  let addedItemsNumber = localStorage.length;
+  let addedItemsNumber = 0;
+
+  if(localStorage){
+    addedItemsNumber = localStorage.length;
+  }
 
   return addedItemsNumber;
 }
