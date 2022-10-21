@@ -3,9 +3,14 @@ import ProductDetails from './ProductDetails.js';
 import { getParam } from './utils.js';
 import ProductList from './ProductList.js';
 import { loadHeaderFooter } from './utils.js';
+import { displayAddedItemsNumber } from './index.js';
 
-loadHeaderFooter(); 
+export async function runAll() {
+    await loadHeaderFooter(); 
+    displayAddedItemsNumber();
+}
 
+runAll();
 
 const dataSource = new ProductData('tents');
 
