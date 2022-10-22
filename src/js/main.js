@@ -1,15 +1,18 @@
-import ProductData from './ProductData.js';
-import ProductDetails from './ProductDetails.js';
-import { getParam } from './utils.js';
-import ProductList from './ProductList.js';
+// import ProductData from './ProductData.js';
+// import ProductDetails from './ProductDetails.js';
+// import { getParam } from './utils.js';
+// import ProductList from './ProductList.js';
 
 
-const dataSource = new ProductData('tents');
+// const dataSource = new ProductData('tents');
 
 
-const productListElement = document.querySelector('.product-list');
+// const productListElement = document.querySelector('.product-list');
 
-const pList = new ProductList('tents', dataSource, productListElement);
-pList.init();
+// const pList = new ProductList('tents', dataSource, productListElement);
+// pList.init();
 
-console.log(pList);
+// console.log(pList);
+import { loadHeaderFooter } from './utils.js';
+
+loadHeaderFooter();
