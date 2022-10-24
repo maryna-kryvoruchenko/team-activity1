@@ -107,3 +107,4 @@ export function displayNumberinPDetails(){
   const counter =  document.querySelector(".counter")
   counter.innerHTML = getAddedItemsNumber();
 }
+
