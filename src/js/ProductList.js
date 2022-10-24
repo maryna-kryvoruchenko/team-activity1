@@ -11,22 +11,34 @@ export default class ProductList{
       }
       async init() {
         // our dataSource will return a Promise...so we can use await to resolve it.
-        const list = await this.dataSource.getData();
         // filter the list
-        this.filterList(list);
+
+        // const list = await this.dataSource.getData();
+        // this.renderList(list)
+          // console.log(window.location.href.split('/'));
+        
+        if (window.location.href.split('/')[3] != 'cart') {
+          const list = await this.dataSource.getData();
+          console.log(list);
+          this.renderList(list);
+        } else {
+          const list = window.localStorage.getItem("so-cart");
+          console.log(list);
+            this.renderList(list);
+        }
       }
 
-      callingCartItems(list){
-
-        this.renderList(list)
-      }      
+      // callingCartItems(){
+      //   const list = window.localStorage.getItem("so-cart");
+      //   this.renderList(list);
+      // }      
 
       filterList(list) {
         const filteredList = []
         list.forEach(product => {
-          if (product.Image != "") {
+          //if (product.Image != "") {
             filteredList.push(product);
-          }
+          //}
         })
         console.log(filteredList);
         // render the list 

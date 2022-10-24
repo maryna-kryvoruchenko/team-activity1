@@ -102,3 +102,8 @@ const footerElement = document.getElementById('main-footer');
 renderWithTemplate(header, headerElement);
 renderWithTemplate(footer, footerElement);
 }
+
+export function displayNumberinPDetails(){
+  const counter =  document.querySelector(".counter")
+  counter.innerHTML = getAddedItemsNumber();
+}
