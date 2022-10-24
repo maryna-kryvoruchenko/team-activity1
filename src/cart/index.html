@@ -7,6 +7,19 @@
     <link rel="stylesheet" href="../css/style.css" />
     <script src="../js/main.js" type="module" defer></script>
     <script src="../js/cart.js" type="module" defer></script>
+    <template id="product-card-template">
+      <li class="cart-card divider">
+        <a href="#" class="cart-card__image">
+          <img src="" alt="Image of" />
+        </a>
+        <a href="#">
+          <h2 class="card__brand"></h2>
+        </a>
+        <p class="cart-card__color"></p>
+        <p class="cart-card__quantity"></p>
+        <p class="product-card__price"></p>
+      </li>
+    </template>
   </head>
   <body>
     <header class="divider" id="main-header"></header>

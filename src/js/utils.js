@@ -58,6 +58,7 @@ export function getParam(param) {
 
 export function renderListWithTemplate(template, parent, list, callback) {
   list.forEach(item => {
+    console.log(template);
     const clone = template.content.cloneNode(true);
     const templateWithData = callback(clone, item);
     parent.appendChild(templateWithData);

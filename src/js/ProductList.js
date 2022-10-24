@@ -16,6 +16,11 @@ export default class ProductList{
         this.filterList(list);
       }
 
+      callingCartItems(list){
+
+        this.renderList(list)
+      }      
+
       filterList(list) {
         const filteredList = []
         list.forEach(product => {
@@ -46,6 +51,7 @@ export default class ProductList{
         this.listElement.innerHTML = '';
         //get the template
         const template = document.getElementById('product-card-template');
+        console.log(template);
         renderListWithTemplate(template, this.listElement, list, this.prepareTemplate);
         
       }
@@ -56,7 +62,7 @@ export default class ProductList{
         template.querySelector('img').src = product.Image;
         template.querySelector('img').alt += product.Name;
         template.querySelector('.card__brand').textContent = product.Brand.Name;
-        template.querySelector('.card__name').textContent = product.NameWithoutBrand;
+        // template.querySelector('.card__name').textContent = product.NameWithoutBrand;
         template.querySelector('.product-card__price').textContent += product.FinalPrice; 
         return template;
       }
