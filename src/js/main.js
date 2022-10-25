@@ -1,12 +1,6 @@
 import { loadHeaderFooter } from './utils.js';
 import { displayAddedItemsNumber } from './index.js';
 
+loadHeaderFooter();
 
-
- function runAll() {
-     loadHeaderFooter();
-     displayAddedItemsNumber();
- }
-
- runAll();
 

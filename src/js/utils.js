@@ -72,7 +72,6 @@ export function renderWithTemplate(template, parent, data, callback) {
   if(callback){
     clone = callback(clone, data);
   }
-
   parent.appendChild(clone);
 }
 
