@@ -1,3 +1,4 @@
+import { displayAddedItemsNumber } from "./index.js";
 // wrapper for querySelector...returns matching element
 export function qs(selector) {
   return parent.querySelector(selector);
@@ -58,4 +59,41 @@ export function renderListWithTemplate(template, parent, list, callback) {
     const templateWithData = callback(clone, item);
     parent.appendChild(templateWithData);
   })
+}
+
+export function renderWithTemplate(template, parent, data, callback) {
+  let clone = template.content.cloneNode(true);
+
+  if(callback){
+    clone = callback(clone, data);
+  }
+
+  parent.appendChild(clone);
+}
+
+function convertToText(res) {
+  if (res.ok) {
+    return res.text();
+  } else {
+    throw new Error("Bad Response");
+  }
+}
+
+export async function loadTemplate(path) {
+  const html = await fetch(path).then(convertToText);
+  const template = document.createElement("template");
+  template.innerHTML = html;
+  return template;
+}
+
+export async function loadHeaderFooter(){
+  const header = document.getElementById("header");
+  const footer = document.getElementById("footer");
+  const headerTemplate = await loadTemplate("../partials/header.html");
+  const footerTemplate = await loadTemplate("../partials/footer.html");
+
+  renderWithTemplate(headerTemplate, header);
+  renderWithTemplate(footerTemplate, footer);  
+
+  displayAddedItemsNumber();
 }
