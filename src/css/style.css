@@ -212,6 +212,29 @@ button {
   grid-column: 3;
 }
 
+/*Product-listing page*/
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+}
+
+.grid-container a {
+  text-decoration: none;
+  color: black;
+  text-align: center;
+}
+
+.grid-container a:visited {
+  text-decoration: none;
+  color: black;
+}
+.top-section {
+  margin: auto;
+  width: 50%;
+  padding-bottom: 2em;
+}
+
 @media screen and (min-width: 500px) {
   body {
     max-width: 1080px;
@@ -230,3 +253,4 @@ footer {
   font-size: var(--small-font);
   padding: 1em;
 }
+

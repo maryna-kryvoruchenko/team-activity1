@@ -11,6 +11,9 @@ export default class ProductList{
       }
       async init() {
         // our dataSource will return a Promise...so we can use await to resolve it.
+        const list = await this.dataSource.getData(this.category);
+        console.log(list);
+
         // filter the list
 
         // const list = await this.dataSource.getData();
@@ -71,7 +74,7 @@ export default class ProductList{
       prepareTemplate(template, product) {
     
         template.querySelector('a').href +=  product.Id;
-        template.querySelector('img').src = product.Image;
+        template.querySelector('img').src = product.Images.PrimaryMedium;
         template.querySelector('img').alt += product.Name;
         template.querySelector('.card__brand').textContent = product.Brand.Name;
         // template.querySelector('.card__name').textContent = product.NameWithoutBrand;

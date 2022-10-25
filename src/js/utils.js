@@ -1,3 +1,4 @@
+import { displayAddedItemsNumber } from "./index.js";
 // wrapper for querySelector...returns matching element
 export function qs(selector) {
   return parent.querySelector(selector);
@@ -62,18 +63,17 @@ export function renderListWithTemplate(template, parent, list, callback) {
     const clone = template.content.cloneNode(true);
     const templateWithData = callback(clone, item);
     parent.appendChild(templateWithData);
-  });
+  })
 }
 
 export function renderWithTemplate(template, parent, data, callback) {
-  
   let clone = template.content.cloneNode(true);
-  if(callback) {
-  clone = callback(clone, data);
-  
-  }
-  parent.appendChild(clone);
 
+  if(callback){
+    clone = callback(clone, data);
+  }
+
+  parent.appendChild(clone);
 }
 
 function convertToText(res) {
@@ -86,25 +86,22 @@ function convertToText(res) {
 }
 
 export async function loadTemplate(path) {
-const html = await fetch(path).then(convertToText);
-const template = document.createElement('template');
-template.innerHTML = html;
-return template;
-
+  const html = await fetch(path).then(convertToText);
+  const template = document.createElement("template");
+  template.innerHTML = html;
+  return template;
 }
 
-// load the header and footer
-export async function loadHeaderFooter() {
-const header = await loadTemplate('../partials/header.html');
-const footer = await loadTemplate('../partials/footer.html');
-const headerElement = document.getElementById('main-header');
-const footerElement = document.getElementById('main-footer');
-renderWithTemplate(header, headerElement);
-renderWithTemplate(footer, footerElement);
+export async function loadHeaderFooter(){
+  const header = document.getElementById("header");
+  const footer = document.getElementById("footer");
+  const headerTemplate = await loadTemplate("../partials/header.html");
+  const footerTemplate = await loadTemplate("../partials/footer.html");
+
+  renderWithTemplate(headerTemplate, header);
+  renderWithTemplate(footerTemplate, footer);  
+
+  displayAddedItemsNumber();
 }
 
-export function displayNumberinPDetails(){
-  const counter =  document.querySelector(".counter")
-  counter.innerHTML = getAddedItemsNumber();
-}
 
