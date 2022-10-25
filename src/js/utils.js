@@ -26,7 +26,11 @@ export function setLocalStorage(key, data) {
 
 export function getAddedItemsNumber(){
   let localStorage = getLocalStorage("so-cart");
-  let addedItemsNumber = localStorage.length;
+  let addedItemsNumber = 0;
+
+  if(localStorage){
+    addedItemsNumber = localStorage.length;
+  }
 
   return addedItemsNumber;
 }
@@ -55,6 +59,7 @@ export function getParam(param) {
 
 export function renderListWithTemplate(template, parent, list, callback) {
   list.forEach(item => {
+    console.log(template);
     const clone = template.content.cloneNode(true);
     const templateWithData = callback(clone, item);
     parent.appendChild(templateWithData);
@@ -74,7 +79,8 @@ export function renderWithTemplate(template, parent, data, callback) {
 function convertToText(res) {
   if (res.ok) {
     return res.text();
-  } else {
+  }
+  else {
     throw new Error("Bad Response");
   }
 }
@@ -97,3 +103,5 @@ export async function loadHeaderFooter(){
 
   displayAddedItemsNumber();
 }
+
+

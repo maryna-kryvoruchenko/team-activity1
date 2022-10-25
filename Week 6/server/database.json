@@ -1,0 +1,70 @@
+{
+  "posts": [
+    {
+      "title": "Sister Anderson in awesome",
+      "content": "Make sure to take her class",
+      "tags": [
+        "tag1",
+        "tag2",
+        "tag3"
+      ],
+      "id": 1
+    },
+    {
+      "title": "Hello",
+      "content": "I'm tired",
+      "tags": [
+        "tag1",
+        "tag2"
+      ],
+      "id": 2
+    },
+    {
+      "title": "Hi",
+      "content": "This is test",
+      "tags": [],
+      "id": 3
+    },
+    {
+      "title": "Another",
+      "content": "Test without tags",
+      "tags": [
+        "tag1",
+        "tag3"
+      ],
+      "id": 4
+    },
+    {
+      "title": "A new checkbox",
+      "content": "Let's test it",
+      "tags": [
+        "greatTag"
+      ],
+      "id": 5
+    },
+    {
+      "title": "Rating",
+      "content": "10",
+      "tags": [
+        "tag1",
+        "greatTag"
+      ],
+      "id": 6
+    },
+    {
+      "title": "Hello",
+      "content": "6",
+      "tags": [],
+      "id": 7
+    },
+    {
+      "title": "Show my rating",
+      "content": "Do it",
+      "rating": "10",
+      "tags": [
+        "tag2"
+      ],
+      "id": 8
+    }
+  ]
+}
