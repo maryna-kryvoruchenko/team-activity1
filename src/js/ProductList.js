@@ -13,15 +13,9 @@ export default class ProductList{
         // our dataSource will return a Promise...so we can use await to resolve it.
         const list = await this.dataSource.getData(this.category);
         console.log(list);
-
-        // filter the list
-
-        // const list = await this.dataSource.getData();
-        // this.renderList(list)
-          // console.log(window.location.href.split('/'));
         
         if (window.location.href.split('/')[3] != 'cart') {
-          const list = await this.dataSource.getData();
+          // const list = await this.dataSource.getData();
           console.log(list);
           this.renderList(list);
         } else {
@@ -29,12 +23,7 @@ export default class ProductList{
           console.log(list);
             this.renderList(list);
         }
-      }
-
-      // callingCartItems(){
-      //   const list = window.localStorage.getItem("so-cart");
-      //   this.renderList(list);
-      // }      
+      } 
 
       filterList(list) {
         const filteredList = []
@@ -77,7 +66,7 @@ export default class ProductList{
         template.querySelector('img').src = product.Images.PrimaryMedium;
         template.querySelector('img').alt += product.Name;
         template.querySelector('.card__brand').textContent = product.Brand.Name;
-        // template.querySelector('.card__name').textContent = product.NameWithoutBrand;
+        template.querySelector('.card__name').textContent = product.NameWithoutBrand;
         template.querySelector('.product-card__price').textContent += product.FinalPrice; 
         return template;
       }
