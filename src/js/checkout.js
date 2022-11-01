@@ -1,5 +1,6 @@
-import { loadHeaderFooter } from './utils.js';
+import { loadHeaderFooter, getLocalStorage } from './utils.js';
 import ExternalServices from './ExternalServices.js';
+
 
 loadHeaderFooter();
 const services = new ExternalServices();
@@ -46,8 +47,10 @@ export default class CheckoutProcess {
     }
     calculateItemSummary() {
       // calculate and display the total amount of the items in the cart, and the number of items.
-      const showSummary = document.querySelector(this.outputSelector + '.itemSubtotal');
-      const totalItems = document.querySelector(this.outputSelector + '.num-items');
+      const showSummary = document.querySelector('.itemSubtotal');
+      const totalItems = document.querySelector('.num-items');
+
+      console.log(showSummary, totalItems);
 
       totalItems.innerHTML = this.list.length;
 
@@ -69,9 +72,9 @@ export default class CheckoutProcess {
     }
     displayOrderTotals() {
       // once the totals are all calculated display them in the order summary page
-      const shipping = document.querySelector(this.outputSelector + '.shipEstimate');
-      const tax = document.querySelector(this.outputSelector + '.tax');
-      const orderTotal = document.querySelector(this.outputSelector + '.orderTotal');
+      const shipping = document.querySelector('.shipEstimate');
+      const tax = document.querySelector('.tax');
+      const orderTotal = document.querySelector('.orderTotal');
 
       shipping.innerHTML = '$' + this.shipping;
       tax.innerHTML = '$' + this.tax;
