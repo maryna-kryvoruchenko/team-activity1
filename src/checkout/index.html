@@ -5,15 +5,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sleep Outside | Checkout</title>
     <link rel="stylesheet" href="../css/style.css" />
-    <script src="../js/checkout.js" type="module"></script>
+    <script src="../js/checkoutProcess.js" type="module"></script>
   </head>
   <body>
-    <header class="divider" id="main-header"></header>
+    <header class="divider" id="header"></header>
     <main class="divider">
       <section class="products">
         <h2>Review & Place your Order</h2>
+        <form>
+          <fieldset>
+            <legend>Shipping</legend>
+            <label for="fname">First name:</label><br>
+            <input type="text" id="fname" name="fname" required><br>
+            <label for="lname">Last name:</label><br>
+            <input type="text" id="lname" name="lname" required><br>
+            <label for="street">Street:</label><br>
+            <input type="text" id="street" name="street" required><br>
+            <label for="city">City:</label><br>
+            <input type="text" id="city" name="city" required><Br>
+            <label for="state">State:</label><br>
+            <input type="text" id="state" name="state" required><br>
+            <label for="zip">Zip Code:</label><br>
+            <input type="text" id="zip" name="zip" required><br>
+          </fieldset>
+          <fieldset>
+            <legend>Payment</legend>
+            <label for="creditCard">Credit Cart Number:</label><br>
+            <input type="text" id="creditCard" name="creditCard" required><br>
+            <label for="expDate">Expiration Date:</label><br>
+            <input type="text" id="expDate" name="expDate" required><br>
+            <label for="sCode">Security Code:</label><br>
+            <input type="text" id="sCode" name="sCode" required><br>
+          </fieldset>
+          <fieldset>
+            <legend>Order Summary:</legend>
+            <label for="itemSubtotal">Item subtotal (<span class="num-items"></span>):</label>
+            <p class="itemSubtotal">$</p>
+            <label for="shipEstimate">Shipping estimate:</label>
+            <p class="shipEstimate">$</p>
+            <label for="tax">Tax</label>
+            <p class="tax">(some tax)</p>
+            <label for="orderTotal">Order Total</label>
+            <p class="orderTotal">$</p>
+          </fieldset><br>
+          <button type="submit" class="submitButton">Submit</button>
+        </form>
       </section>
     </main>
-    <footer id="main-footer"></footer>
+    <footer id="footer"></footer>
   </body>
 </html>
