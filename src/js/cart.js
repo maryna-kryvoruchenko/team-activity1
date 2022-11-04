@@ -1,5 +1,7 @@
 //import {showTotalCartItems} from './utils.js';
 
+import ProductList from "./ProductList";
+
 function getLocalStorage(key) {
   return JSON.parse(localStorage.getItem(key));
 }
@@ -41,4 +43,8 @@ function renderCartItem(item) {
 }
 
 getCartContents();
+// const dataSource = new ProductData('tents');
+// const productListElement = document.querySelector('.cart-list');
+// const cartList = new ProductList('tents', dataSource, productListElement);
+// cartList.callingCartItems(window.localStorage.getItem("so-cart"));
 //showTotalCartItems(TotalProduct);
