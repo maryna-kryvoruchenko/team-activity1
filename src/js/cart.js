@@ -1,4 +1,4 @@
-//import {showTotalCartItems} from './utils.js'; 
+//import {showTotalCartItems} from './utils.js';
 
 function getLocalStorage(key) {
   return JSON.parse(localStorage.getItem(key));
@@ -11,6 +11,7 @@ function getCartContents() {
   document.querySelector(".product-list").innerHTML = htmlItems.join("");
   // document.querySelector(".product-list").innerHTML = renderCartItem(cartItems);
   document.querySelector(".counter").innerHTML = cartItems.length;
+  document.getElementById('remove-icon').addEventListener('click', this.removeFromCart.bind(this));
 }
 
 function renderCartItem(item) {
@@ -27,7 +28,14 @@ function renderCartItem(item) {
   <p class="cart-card__color">${item.Colors[0].ColorName}</p>
   <p class="cart-card__quantity">qty: 1</p>
   <p class="cart-card__price">$${item.FinalPrice}</p>
-</li>`;
+</li>
+<a href="#" class="remove-icon">
+    <img
+      src="../images/x-cons.png"
+      alt="Remove item"
+    />
+  </a>
+`;
   console.log(newItem);
   return newItem;
 }

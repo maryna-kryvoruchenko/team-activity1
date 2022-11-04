@@ -4,6 +4,6 @@ window.addEventListener("load", event => {
     displayAddedItemsNumber();
 });
 
-function displayAddedItemsNumber() {
+async function displayAddedItemsNumber() {
     document.querySelector(".counter").innerHTML = getAddedItemsNumber();
 }
