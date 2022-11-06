@@ -16,7 +16,7 @@ export default class ProductDetails {
         // once the HTML is rendered we can add a listener to Add to Cart button
         // Notice the .bind(this). Our callback will not work if we don't include that line. Review the readings from this week on 'this' to understand why.
         document.getElementById('addToCart').addEventListener('click', this.addToCart.bind(this));
-        this.showDiscount();
+        document.querySelector('.discount').innerHTML = (this.showDiscount() + "% off");
       }
 
     addToCart() {
@@ -29,8 +29,11 @@ export default class ProductDetails {
       const finalPrice = this.product.FinalPrice;
       console.log(retailPrice, finalPrice);
 
-      const savedDollars = retailPrice - finalPrice
-      console.log(savedDollars);
+      const savedDollars = (retailPrice - finalPrice).toFixed(2);
+      const discountPercent = Math.round((savedDollars / retailPrice)*100);
+      
+      console.log(discountPercent);
+      return discountPercent;
     }
     
     renderProductDetails() {
