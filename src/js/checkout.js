@@ -1,4 +1,4 @@
-import { loadHeaderFooter, getLocalStorage } from './utils.js';
+import { loadHeaderFooter, getLocalStorage, setLocalStorage, alertMessage } from './utils.js';
 import ExternalServices from './ExternalServices.js';
 
 
@@ -96,7 +96,13 @@ export default class CheckoutProcess {
       try {
         const res = await services.checkout(json);
         console.log(res);
+        setLocalStorage('so-cart', []);
+        location.assign('../checkout/checkedout.html');
       } catch (err) {
+        removeAllAlerts();
+        for(let message in err.message) {
+        alertMessage(err.message[message]);
+     }
         console.log(err);
       }
       // call the checkout method in our ExternalServices module and send it our data object.
