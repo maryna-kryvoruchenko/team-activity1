@@ -1,4 +1,4 @@
-import { loadHeaderFooter, getLocalStorage } from './utils.js';
+import { loadHeaderFooter, getLocalStorage, setLocalStorage, alertMessage } from './utils.js';
 import ExternalServices from './ExternalServices.js';
 
 
@@ -87,6 +87,14 @@ export default class CheckoutProcess {
 
       const json = formDataToJSON(formElement);
       // add totals, and item details
+      json.lname = document.querySelector("#lname").value;
+      json.fname = document.querySelector("#fname").value;
+      json.street = document.querySelector("#street").value;
+      json.city = document.querySelector("#city").value;
+      json.state = document.querySelector("#state").value;
+      json.zip = document.querySelector("#zip").value;
+      json.cardNumber = document.querySelector("#creditCard").value;
+      json.expiration = document.querySelector("#expDate").value;
       json.orderDate = new Date();
       json.orderTotal = this.orderTotal;
       json.tax = this.tax;
@@ -96,7 +104,14 @@ export default class CheckoutProcess {
       try {
         const res = await services.checkout(json);
         console.log(res);
+        window.localStorage.clear();
+        location.assign('../checkout/checkedout.html');
       } catch (err) {
+        console.log("Test")
+        // removeAllAlerts();
+        // for(let message in err.message) {
+        alertMessage(err.message);
+    //  }
         console.log(err);
       }
       // call the checkout method in our ExternalServices module and send it our data object.
